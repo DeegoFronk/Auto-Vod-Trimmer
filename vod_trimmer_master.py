@@ -15,7 +15,6 @@ import shorts_module
 import socket
 import random
 
-from faster_whisper import WhisperModel
 from tqdm import tqdm
 
 # ==========================================
@@ -110,6 +109,8 @@ class Heartbeat:
         self.thread.join()
         sys.stdout.write("\r" + " " * 80 + "\r")
         sys.stdout.flush()
+
+beat = Heartbeat()
 
 # ==========================================
 # 4. MULTIPROCESSING & MATH ALGORITHMS
@@ -390,6 +391,8 @@ def process_vod():
 
         # --- PHASE 2: SEMANTIC PASS (WHISPER AI) ---
     print("\n>>> Semantic Pass (Pass 2 - 12 Thread AI Engine)...")
+    # Importing the WhisperModel here ensures it only loads when needed and not during GUI initialization.
+    from faster_whisper import WhisperModel
     model = WhisperModel("base.en", device="cpu", compute_type="int8", cpu_threads=12)
     raw_segments = []
     total_hype, peak_wpm, b_count = 0, 0, 0
@@ -654,7 +657,6 @@ def process_vod():
     # The function now officially ends here, triggering Python's Garbage Collector.
 
 if __name__ == "__main__":
-    beat = Heartbeat()
     process_vod()
     # The terminal stays open, but the 2GB of RAM is instantly freed back to Windows.
     input("\nPress Enter to exit...")

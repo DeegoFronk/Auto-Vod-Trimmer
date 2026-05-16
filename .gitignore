@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Runtime outputs
+outputs/
+concat_list_temp.txt
+
+# Extracted audio side-files (optional pre-extracted tracks placed next to the video)
+mic.wav
+game.wav
+
+# User config
+config.ini
+
+# Whisper model cache
+~/.cache/huggingface/
+
+# macOS metadata files
+._*
+.DS_Store
+
+# Windows thumbnail cache
+Thumbs.db
+Desktop.ini
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo

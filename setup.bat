@@ -51,6 +51,6 @@ echo.
 color 0A
 echo ===================================================
 echo   SETUP COMPLETE! 
-echo   You can now double-click "run_trimmer.bat"
+echo   You can now double-click "run.bat"
 echo ===================================================
 pause

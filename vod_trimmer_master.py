@@ -639,7 +639,7 @@ def process_vod():
             for c in sorted(segs, key=lambda x: x['start']): f.write(f"file '{input_video}'\ninpoint {c['start']}\noutpoint {c['end']}\n")
         beat.start(f"Rendering {desc}")
         try:
-            subprocess.run(['ffmpeg', '-y', '-f', 'concat', '-safe', '0', '-i', cp, '-c:v', 'copy', '-c:a', 'aac', '-af', 'aresample=async=1', out_file], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run(['ffmpeg', '-y', '-f', 'concat', '-safe', '0', '-i', cp, '-map', '0', '-c:v', 'copy', '-c:a', 'aac', '-af', 'aresample=async=1', out_file], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         finally:
             os.remove(cp)
             beat.stop()
